@@ -7,6 +7,10 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
+
+	"encoding/xml"
+
+	"github.com/goware/saml"
 )
 
 var privateKeyDirPrefix = "./privateKey"
@@ -59,9 +63,34 @@ func (c *OrganizationController) Get() {
 }
 
 func (c *MetadataController) Get() {
-	c.Data["Website"] = "beego.me"
-	c.Data["Email"] = "astaxie@gmail.com"
-	c.TplName = "index.tpl"
+	id := c.Ctx.Input.Param(":id")
+	privateKeyDir := privateKeyDirPrefix + id + ".pem"
+	certificateDir := certificateDirPrefix + id + ".crt"
+	identityProvider := saml.IdentityProvider{
+		CertFile: certificateDir,
+		KeyFile:  privateKeyDir,
+
+		MetadataURL: "https://saml.idhub.network",
+		SSOURL:      "https://samlSSO.idhub.network",
+
+		// SPMetadataURL: "https://saml.idhub.network",
+		EntityID: "https://saml.idhub.network",
+
+		SecurityOpts: saml.SecurityOpts{
+			AllowSelfSignedCert: true,
+		},
+	}
+
+	metadata, err := identityProvider.Metadata()
+	if err != nil {
+		// Logf("Failed to generate metadata: %v", err)
+		// writeErr(w, err)
+		return
+	}
+	c.Data["metadata"] = metadata
+	c.ServeXML()
+	return
+	// out, err := xml.MarshalIndent(metadata, "", "\t")
 }
 
 func (c *SamlResponseController) Post() {
