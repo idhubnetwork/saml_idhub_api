@@ -19,6 +19,10 @@ import (
 var privateKeyDirPrefix = "./privateKey"
 var certificateDirPrefix = "./certificate"
 
+type NewError struct {
+	err string
+}
+
 type OrganizationController struct {
 	beego.Controller
 }
@@ -38,17 +42,29 @@ func (c *OrganizationController) Get() {
 	s, err := keypairs.GenKeyAndCert(privateKeyDir, certificateDir)
 	if err != nil {
 		fmt.Println(err)
+		json := &NewError{err}
+		c.Data["json"] = json
+		c.ServeJSON()
+		return
 	}
 	fmt.Println(s)
 
 	privateKey, err := ioutil.ReadFile(privateKeyDir)
 	if err != nil {
+		fmt.Println(err)
+		json := &NewError{err}
+		c.Data["json"] = json
+		c.ServeJSON()
 		return
 	}
 	fmt.Println(privateKey)
 
 	certificate, err := ioutil.ReadFile(certificateDir)
 	if err != nil {
+		fmt.Println(err)
+		json := &NewError{err}
+		c.Data["json"] = json
+		c.ServeJSON()
 		return
 	}
 	fmt.Println(certificate)
@@ -62,6 +78,11 @@ func (c *OrganizationController) Get() {
 	i, err := o.Insert(&organization)
 	fmt.Println(i)
 	if err != nil {
+		fmt.Println(err)
+		json := &NewError{err}
+		c.Data["json"] = json
+		c.ServeJSON()
+		return
 		// 查询数据库失败
 	}
 }
@@ -87,6 +108,10 @@ func (c *MetadataController) Get() {
 
 	metadata, err := identityProvider.Metadata()
 	if err != nil {
+		fmt.Println(err)
+		json := &NewError{err}
+		c.Data["json"] = json
+		c.ServeJSON()
 		// Logf("Failed to generate metadata: %v", err)
 		// writeErr(w, err)
 		return
@@ -102,6 +127,10 @@ func (c *SamlResponseController) Post() {
 	certificateDir := certificateDirPrefix + c.GetString("org_id") + ".crt"
 	certificate, err := ioutil.ReadFile(certificateDir)
 	if err != nil {
+		fmt.Println(err)
+		json := &NewError{err}
+		c.Data["json"] = json
+		c.ServeJSON()
 		return
 	}
 	fmt.Println(certificate)
@@ -135,10 +164,10 @@ func (c *SamlResponseController) Post() {
 	b64XML, err := authnResponse.EncodedSignedString(privateKeyDir)
 	fmt.Println(b64XML, err)
 	type JSON struct {
-		SamlResponse string
+		samlResponse string
 	}
 	json := &JSON{b64XML}
-	c.Data["json"] = json
+	c.Data["samlResponse"] = json
 	c.ServeJSON()
 	return
 }
