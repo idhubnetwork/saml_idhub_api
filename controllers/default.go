@@ -42,7 +42,7 @@ func (c *OrganizationController) Get() {
 	s, err := keypairs.GenKeyAndCert(privateKeyDir, certificateDir)
 	if err != nil {
 		fmt.Println(err)
-		json := &NewError{err}
+		json := &NewError{err.Error()}
 		c.Data["json"] = json
 		c.ServeJSON()
 		return
@@ -52,7 +52,7 @@ func (c *OrganizationController) Get() {
 	privateKey, err := ioutil.ReadFile(privateKeyDir)
 	if err != nil {
 		fmt.Println(err)
-		json := &NewError{err}
+		json := &NewError{err.Error()}
 		c.Data["json"] = json
 		c.ServeJSON()
 		return
@@ -62,7 +62,7 @@ func (c *OrganizationController) Get() {
 	certificate, err := ioutil.ReadFile(certificateDir)
 	if err != nil {
 		fmt.Println(err)
-		json := &NewError{err}
+		json := &NewError{err.Error()}
 		c.Data["json"] = json
 		c.ServeJSON()
 		return
@@ -79,7 +79,7 @@ func (c *OrganizationController) Get() {
 	fmt.Println(i)
 	if err != nil {
 		fmt.Println(err)
-		json := &NewError{err}
+		json := &NewError{err.Error()}
 		c.Data["json"] = json
 		c.ServeJSON()
 		return
@@ -109,7 +109,7 @@ func (c *MetadataController) Get() {
 	metadata, err := identityProvider.Metadata()
 	if err != nil {
 		fmt.Println(err)
-		json := &NewError{err}
+		json := &NewError{err.Error()}
 		c.Data["json"] = json
 		c.ServeJSON()
 		// Logf("Failed to generate metadata: %v", err)
@@ -128,7 +128,7 @@ func (c *SamlResponseController) Post() {
 	certificate, err := ioutil.ReadFile(certificateDir)
 	if err != nil {
 		fmt.Println(err)
-		json := &NewError{err}
+		json := &NewError{err.Error()}
 		c.Data["json"] = json
 		c.ServeJSON()
 		return
