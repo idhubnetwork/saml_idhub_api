@@ -1,0 +1,136 @@
+{
+	"id": "92e322ea-709f-1f90-e0e4-ad9ca8a44d97",
+	"name": "saml_idhub_api",
+	"description": "",
+	"order": [
+		"51291c49-4510-846a-53cf-c277d545d756",
+		"12bd8dc9-80fd-16f5-7140-af8c06f4a9f2",
+		"e82c5a74-07e1-354b-e4df-37adfd5112e6"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1527495215146,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "12bd8dc9-80fd-16f5-7140-af8c06f4a9f2",
+			"headers": "",
+			"headerData": [],
+			"url": "58.83.219.136:33333/getMetadata/idhub_test",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "92e322ea-709f-1f90-e0e4-ad9ca8a44d97",
+			"data": null,
+			"dataMode": "params",
+			"name": "58.83.219.136:33333/getMetadata/idhub_test",
+			"description": "GET 58.83.219.136:33333/getMetadata/:org_id",
+			"descriptionFormat": "html",
+			"time": 1527495317397,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "51291c49-4510-846a-53cf-c277d545d756",
+			"headers": "",
+			"headerData": [],
+			"url": "58.83.219.136:33333/setOrganizations/idhub_test",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "92e322ea-709f-1f90-e0e4-ad9ca8a44d97",
+			"data": null,
+			"dataMode": "params",
+			"name": "58.83.219.136:33333/setOrganizations/idhub_test",
+			"description": "GET 58.83.219.136:33333/setOrganizations/:org_id",
+			"descriptionFormat": "html",
+			"time": 1527495266814,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "e82c5a74-07e1-354b-e4df-37adfd5112e6",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "58.83.219.136:33333/getSamlResponse",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "92e322ea-709f-1f90-e0e4-ad9ca8a44d97",
+			"data": [
+				{
+					"key": "org_id",
+					"value": "piouslove",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "issuer",
+					"value": "urn:piouslove.idhub.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "user_id",
+					"value": "zaakin",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "role_arn",
+					"value": "abc",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "provider_arn",
+					"value": "def",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "org_aws_id",
+					"value": "xyz",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "58.83.219.136:33333/getSamlResponse",
+			"description": "[{\"key\":\"org_id\",\"value\":\"piouslove\",\"description\":\"组织的标识符\"},{\"key\":\"issuer\",\"value\":\"urn:piouslove.idhub.network\",\"description\":\"urn:组织的标识符.idhub.network\"},{\"key\":\"user_id\",\"value\":\"zaakin\",\"description\":\"用户标识符\"},{\"key\":\"role_arn\",\"value\":\"abc\",\"description\":\"由组织提供的AWS角色ARN\"},{\"key\":\"provider_arn\",\"value\":\"def\",\"description\":\"由组织提供的AWS身份提供商ARN\"},{\"key\":\"org_aws_id\",\"value\":\"xyz\",\"description\":\"由组织提供的AWS帐户ID\"}]",
+			"descriptionFormat": "html",
+			"time": 1527495526328,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
