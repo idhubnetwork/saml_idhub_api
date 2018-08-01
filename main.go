@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "idhub/saml_idhub_api/models"
-	_ "idhub/saml_idhub_api/routers"
+	_ "saml_idhub_api/models"
+	_ "saml_idhub_api/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

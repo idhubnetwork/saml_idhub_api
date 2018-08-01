@@ -21,6 +21,7 @@ $ go get github.com/astaxie/beego/orm
 $ go get github.com/go-sql-driver/mysql
 $ go get github.com/goware/saml
 $ go get github.com/RobotsAndPencils/go-saml/util
+$ go get github.com/nu7hatch/gouuid
 $ go get github.com/stretchr/testify/assert
 $ go get github.com/kardianos/osext
 ```

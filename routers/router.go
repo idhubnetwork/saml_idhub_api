@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"idhub/saml_idhub_api/controllers"
+	"saml_idhub_api/controllers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/plugins/cors"

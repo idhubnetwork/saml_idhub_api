@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"idhub/saml_idhub_api/go-saml"
-	"idhub/saml_idhub_api/keypairs"
-	"idhub/saml_idhub_api/models"
+	"saml_idhub_api/go-saml"
+	"saml_idhub_api/keypairs"
+	"saml_idhub_api/models"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
