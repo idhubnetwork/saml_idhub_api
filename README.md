@@ -24,15 +24,15 @@ $ go get github.com/RobotsAndPencils/go-saml/util
 $ go get github.com/stretchr/testify/assert
 $ go get github.com/kardianos/osext
 ```
-4. 
+4. Transfer to project directory
 ```sh
 $ cd saml_idhub_api
 ```
-5. 
+5. Build
 ```sh
 $ go build main.go
 ```
-6. 
+6. Run
 ```sh
 $ ./main
 ```
