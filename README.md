@@ -20,7 +20,6 @@ $ go get github.com/astaxie/beego
 $ go get github.com/astaxie/beego/orm
 $ go get github.com/go-sql-driver/mysql
 $ go get github.com/goware/saml
-$ go get github.com/RobotsAndPencils/go-saml/util
 $ go get github.com/nu7hatch/gouuid
 $ go get github.com/stretchr/testify/assert
 $ go get github.com/kardianos/osext
@@ -32,6 +31,11 @@ $ cd saml_idhub_api
 5. Build
 ```sh
 $ go build main.go
+```
+6. Add key and cert directory
+```sh
+$ mkdir privateKey
+$ mkdir certificate
 ```
 6. Run
 ```sh

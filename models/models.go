@@ -17,7 +17,7 @@ func init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 
 	// set default database
-	orm.RegisterDataBase("default", "mysql", "root(127.0.0.1:3306)/saml_idhub_api?charset=utf8", 30)
+	orm.RegisterDataBase("default", "mysql", "root@(127.0.0.1:3306)/saml_idhub_api?charset=utf8", 30)
 
 	// register model
 	orm.RegisterModel(new(Organization))
