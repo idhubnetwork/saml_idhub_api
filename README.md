@@ -38,7 +38,7 @@ $ go build main.go
 $ mkdir privateKey
 $ mkdir certificate
 ```
-7. Change mysql configure `conf/app.conf`
+7. Change configure `conf/app.conf`
 8. Run
 ```sh
 $ ./main
