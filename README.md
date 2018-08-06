@@ -23,6 +23,7 @@ $ go get github.com/goware/saml
 $ go get github.com/nu7hatch/gouuid
 $ go get github.com/stretchr/testify/assert
 $ go get github.com/kardianos/osext
+$ go get github.com/astaxie/beego/config
 ```
 4. Transfer to project directory
 ```sh
@@ -37,7 +38,8 @@ $ go build main.go
 $ mkdir privateKey
 $ mkdir certificate
 ```
-6. Run
+7. Change config `conf/app.conf`
+8. Run
 ```sh
 $ ./main
 ```
